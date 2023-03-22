@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>医学图像格式与处理工具   | Andy</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Andyb1ance.github.io/favicon.ico?v=1679481918375">
+<link rel="stylesheet" href="https://Andyb1ance.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="医学图像格式
+医学图像常用的格式包括六种格式：DICOM（医疗中的数字图像和通信），NIFTI（神经影像学信息技术计划），PAR/REC（飞利浦 MRI 扫描格式），ANALYZE（Mayo 医疗成像）以及 NRRD（近乎原始光栅数据）和 ..." />
+    <meta name="keywords" content="医学图像" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://Andyb1ance.github.io">
+        <img src="https://Andyb1ance.github.io/images/avatar.png?v=1679481918375" class="site-logo">
+        <h1 class="site-title">Andy</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Andy摸鱼的地方
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://Andyb1ance.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">医学图像格式与处理工具  </h2>
+            <div class="post-date">2023-03-22</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="医学图像格式">医学图像格式</h2>
+<p>医学图像常用的格式包括六种格式：DICOM（医疗中的数字图像和通信），NIFTI（神经影像学信息技术计划），PAR/REC（飞利浦 MRI 扫描格式），ANALYZE（Mayo 医疗成像）以及 NRRD（近乎原始光栅数据）和 MNIC 格式。其中DICOM格式是最常用的，NIFTI和NRRD也很常见。三种格式的异同和优缺点如下：</p>
+<ol>
+<li>DICOM格式</li>
+</ol>
+<p>DICOM（Digital Imaging and Communications in Medicine）格式是医学图像处理中最常用的格式。它是一种开放标准，用于将医学图像、文本和其他相关信息存储为一系列文件。DICOM格式最大的优点是它具有广泛的应用和支持，可以存储各种类型的医学图像和相关信息，包括X光、CT扫描、MRI、超声等。它也支持图像的元数据，如扫描日期、扫描仪制造商、扫描参数等等，也可以存储患者信息、病历记录和影像数据，可以跨平台传输和共享。</p>
+<p>然而，DICOM格式的缺点是它的复杂性和多样性，DICOM文件比较庞大，压缩效果不好，且不易与其他软件集成,不同的设备可能会存储不同的DICOM文件，这可能会导致数据的不兼容。</p>
+<ol start="2">
+<li>NIFTI格式<br>
+NIFTI（Neuroimaging Informatics Technology Initiative）格式是一种常用的神经影像学研究的文件格式，它可以存储3D和4D MRI数据，支持各种不同的图像类型，包括MRI、PET和SPECT等，并且可以轻松地与其他软件集成。与DICOM格式不同，NIFTI格式将整个数据集存储在一个文件中，而不是将每个图像切片单独存储。这种格式的优点是它比DICOM格式更简单，具有较小的文件大小，良好的可读性和可视化效果，适用于科学研究和教育用途处理和分析。</li>
+</ol>
+<p>缺点是NIFTI格式不支持存储图像的元数据，如扫描日期、扫描仪制造商、扫描参数等等。</p>
+<ol start="3">
+<li>NRRD格式<br>
+NRRD（Nearly Raw Raster Data）格式是一种比较新的开放式医学图像格式，它可以存储3D和4D医学图像，并具有压缩功能，可以减小文件大小。与DICOM和NIFTI格式不同，NRRD格式可以存储不同的图像类型和非医学图像数据。它的优点是可以用于存储各种类型的数据，而不仅仅是医学图像。此外，NRRD格式还支持存储图像的元数据。</li>
+</ol>
+<p>缺点是由于它是一个相对较新的格式，支持可能不如DICOM和NIFTI格式广泛，对于大型数据集可能会产生一些性能问题。</p>
+<p>总之，医学图像处理中最常用的格式是DICOM、NIFTI和NRRD。DICOM格式是最常用的格式，但它比较复杂，可能导致数据不兼容。NIFTI格式比DICOM格式更简单，易于处理和分析。NRRD格式支持存储各种类型的数据和元数据，但可能不如DICOM和NIFTI格式广泛。</p>
+<h3 id="参考">参考</h3>
+<p>https://www.jarvis73.com/2019/06/24/Medical-Imaging-Guide/</p>
+<h2 id="nifti">NIFTI</h2>
+<p>NIFTI（Neuroimaging Informatics Technology Initiative）是一种常用的神经影像数据格式，用于存储磁共振成像（MRI）、正电子发射断层扫描（PET）和计算机断层扫描（CT）等医学图像数据。NIFTI格式是NIfTI-1标准的一部分，由National Institutes of Health (NIH)的Neuroimaging Informatics Technology Initiative (NITRC)组织开发和维护。NIFTI格式是NIfTI-1标准的更新版本，与旧版本（ANALYZE 7.5格式）相比，具有更好的灵活性和可扩展性</p>
+<p>NIFTI格式的数据文件由两部分组成：头文件（.nii或.hdr文件）和图像文件（.nii或.img文件）。头文件包含有关数据的描述信息，例如图像的维度、方向、大小、像素间隔、数据类型等，以及可能的数据预处理历史记录。图像文件包含实际的图像数据。</p>
+<p>NIFTI格式的优点之一是易于使用，并且可以被大多数神经影像工具所支持。以下是一些常用的NIFTI格式处理工具：</p>
+<ol>
+<li>
+<p>FSL（FMRIB Software Library）：是由英国牛津大学功能磁共振成像研究组（FMRIB）开发的一套免费软件，提供了大量的神经影像分析工具，如结构和功能磁共振成像、脑电图等，是一套用于功能和结构MRI分析的开源软件库，包括用于预处理、统计分析、图像分割、配准等功能。</p>
+</li>
+<li>
+<p>SPM（Statistical Parametric Mapping）：是一套运行在MATLAB环境下的软件，是一种常用的神经影像数据分析工具，可用于MRI、PET和SPECT等数据的统计分析、图像重建和图像显示。</p>
+</li>
+<li>
+<p>ANTs（Advanced Normalization Tools）：是一个用于图像配准和分割的免费软件包，可用于脑部解剖学变异性的纠正。</p>
+</li>
+<li>
+<p>AFNI（Analysis of Functional NeuroImages）：是一套免费的功能磁共振成像（fMRI）分析软件，用于MRI和PET数据分析，包括用于预处理、统计分析、图像显示和可视化等功能，提供了各种针对时间序列数据的算法。</p>
+</li>
+<li>
+<p>ITK（Insight Segmentation and Registration Toolkit）：是一个开源的图像分割和配准工具包，可用于MRI、CT和PET数据的图像分割、配准和可视化等任务。</p>
+</li>
+<li>
+<p>FreeSurfer：是一种常用的用于MRI数据分析的软件，主要用于皮层表面重建、脑结构分析、图像配准和可视化等功能。</p>
+</li>
+</ol>
+<p>这些处理工具都可以读取、处理和分析NIFTI格式的神经影像数据，用户可以根据需要选择适合自己的工具进行数据分析。</p>
+<p>当涉及到读取和处理NIFTI格式医学图像时，Python中有几个流行的库或包。以下是一些主要的库或包：</p>
+<ol>
+<li>
+<p>nibabel：它是读取和操作神经影像数据的Python库之一。它可以处理多种格式，包括NIfTI-1、NIfTI-2、ANALYZE 7.5等，并提供了一系列的功能，如处理MRI，PET和DTI。</p>
+</li>
+<li>
+<p>SimpleITK：这是一个用于医学图像处理的跨平台C++库，提供了Python界面。它可以读取和写入多种格式，包括NIFTI、DICOM、MetaImage等，并提供了许多强大的图像处理算法，如图像配准、分割、重建等。</p>
+</li>
+<li>
+<p>PyRadiomics：它是一个开源Python库，用于从医学图像中提取与癌症相关的定量特征。它支持多种图像格式，包括NIFTI、DICOM等，并具有自动特征选择和分类器创建等功能。</p>
+</li>
+<li>
+<p>MedPy：这是一个Python库，旨在提供各种医学图像分析工具。它支持多种图像格式，包括NIFTI、DICOM、PNG等，并提供了基本的图像处理函数，如阈值化、滤波、形态学等。</p>
+</li>
+<li>
+<p>niwidgets：它是一个可视化NIFTI文件的Python库，使用Jupyter Notebook进行交互式可视化。它允许用户查看医学图像并将其与其他信息（如标签和解剖结构）进行比较。</p>
+</li>
+</ol>
+<p>以上是一些用于读取和处理NIFTI格式医学图像的主要Python库或包。用户可以根据需求和项目要求选取合适的库进行使用。</p>
+<h3 id="nibabel">NiBabel</h3>
+<p>如果需要使用Python进行NIFTI图像处理，可以使用NiBabel库。NiBabel提供了读写NIFTI格式文件的功能，同时也支持其他常用的医学图像格式。可以使用以下命令安装NiBabel：<code>pip install nibabel</code></p>
+<p>下方代码中，<code>nii_image1</code>是一个Nifti1Image对象，包含了图像的头文件和图像数据。<code>data</code>是一个三维数组，存储了图像的像素值。可以使用img.header访问头文件信息，使用img.affine访问仿射矩阵。</p>
+<pre><code>nii_path = &quot;sub-OAS30027_ses-d0433_run-01_T1w.nii.gz&quot;
+
+import nibabel as nib
+
+nii_image1 = nib.load(nii_path)
+data = nii_image1.get_fdata()
+print(nii_image1)
+print(nii_image1.header)
+print(nii_image1.affine)
+print(nii_image1.shape)
+</code></pre>
+<h3 id="simpleitk">SimpleITK</h3>
+<pre><code>import SimpleITK as sitk
+nii_image1_sitk = sitk.ReadImage(nii_path)
+print(nii_image1_sitk)
+print(nii_image1_sitk.GetSpacing())
+print(nii_image1_sitk.GetDirection())
+print(nii_image1_sitk.GetDimension())
+print(nii_image1_sitk.GetSize())
+print(nii_image1_sitk.GetOrigin())
+print(sitk.GetArrayFromImage(nii_image1_sitk).shape) # z x y
+</code></pre>
+<h2 id="nrrd">NRRD</h2>
+<p>NRRD（Nearly Raw Raster Data）是一种用于存储和交换图像和体数据的文件格式。它的设计目的是为了在不同的应用程序和平台之间提供一种通用的数据交换格式。NRRD格式是一种文本格式，它可以包含原始的二进制图像数据和元数据信息。</p>
+<p>NRRD文件包括两个部分：文件头和文件数据。文件头包含了关于数据类型、维度、尺寸、坐标系、像素间距、方向信息、数据压缩等元数据信息，这些信息被编写为键值对。文件数据是原始的二进制图像数据。</p>
+<p>NRRD格式具有以下特点：</p>
+<ol>
+<li>支持多种数据类型，包括无符号整型、有符号整型、浮点数、双精度数等。</li>
+<li>可以存储任意维度的数据，不仅限于三维，还可以存储二维、四维甚至更高维度的数据。</li>
+<li>头部信息中包含了大量的元数据，可以对图像进行详细的描述，如单位、采集参数、处理方法等。</li>
+</ol>
+<p>常见的NRRD处理工具包括但不限于：</p>
+<ol>
+<li>ITK（Insight Segmentation and Registration Toolkit）：一个开源的医学图像处理库，支持多种文件格式，包括NRRD格式。ITK提供了丰富的算法实现，如图像滤波、分割、配准等。</li>
+<li>Slicer：一个开源的医学图像处理软件，基于ITK和VTK（Visualization Toolkit）库开发，支持多种文件格式，包括NRRD格式。Slicer提供了用户友好的界面和丰富的功能，包括三维可视化、体数据分割、手术规划等。</li>
+<li>3D Slicer：同样基于ITK和VTK库开发，是Slicer的增强版，提供了更多的功能和插件。</li>
+</ol>
+<p>Python语言中的SimpleITK和PyNRRD是两个常用的Python库，都支持NRRD格式的读写和处理，可以在Python环境下进行医学图像处理和分析。其中SimpleITK是基于ITK库封装而来，提供了简洁易用的API；PyNRRD提供了读写NRRD格式文件的功能，同时也支持其他常用的医学图像格式。</p>
+<h3 id="pynrrd">PyNRRD</h3>
+<p>如果需要使用Python进行NRRD图像处理，可以使用PyNRRD库。可以使用以下命令安装PyNRRD：<code>pip install pynrrd</code></p>
+<p>下方代码中，<code>data</code>是一个多维数组，存储了图像的像素值。<code>header</code>是一个字典，包含了头文件信息。可以使用<code>header.keys()</code>查看头文件中包含的信息。</p>
+<pre><code>import nrrd
+
+data, header = nrrd.read('path/to/file.nrrd')
+print(header.keys())
+</code></pre>
+<h2 id="nifti和nrrd转换">NIFTI和NRRD转换</h2>
+<p>下面的代码中，我们首先使用ReadImage函数读取NIFTI格式的图像数据和头文件数据，并将头文件数据保存在nifti_header变量中。然后，我们使用GetArrayFromImage函数将图像数据转换为数组，再使用GetImageFromArray函数将数组转换为图像数据。接着，我们将NRRD格式的图像数据的空间信息、原点信息和方向信息设置为与NIFTI格式的图像数据相同，然后使用GetImageHeader函数获取NRRD格式的头文件数据。最后，我们使用WriteImage函数将NRRD格式的图像数据和头文件数据写入文件。</p>
+<p>注意，上面的代码中，我们将第三个参数设置为True，表示将压缩NRRD格式的图像数据。如果不需要压缩，可以将该参数设置为False。此外，如果需要将NRRD格式的图像数据写入</p>
+<pre><code>#未验证
+import SimpleITK as sitk
+
+# 读取NIFTI格式的图像数据和头文件数据
+nifti_image = sitk.ReadImage(&quot;path/to/nifti/image.nii.gz&quot;)
+nifti_header = nifti_image.GetMetaData()
+
+# 将NIFTI格式的图像数据和头文件数据转换为NRRD格式
+nrrd_image = sitk.GetImageFromArray(sitk.GetArrayFromImage(nifti_image))
+nrrd_image.SetSpacing(nifti_image.GetSpacing())
+nrrd_image.SetOrigin(nifti_image.GetOrigin())
+nrrd_image.SetDirection(nifti_image.GetDirection())
+nrrd_header = sitk.GetImageHeader(nrrd_image)
+
+# 将NRRD格式的图像数据和头文件数据写入文件
+sitk.WriteImage(nrrd_image, &quot;path/to/nrrd/image.nrrd&quot;, True, nrrd_header)
+</code></pre>
+<pre><code># 这是我原来的代码
+import os
+from glob import glob
+import SimpleITK as sitk
+
+baseDir = os.path.normpath('C:/Users/user/Desktop/test/NIFTI')
+files = glob(baseDir + '//*.nii.gz')
+
+for file in files:
+    _nii = sitk.ReadImage(file)
+    sitk.WriteImage(_nii,file[:-7].replace(&quot;NIFTI&quot;,&quot;NRRD&quot;)+&quot;.nrrd&quot;)
+    _nrrd = sitk.ReadImage(file[:-7].replace(&quot;NIFTI&quot;,&quot;NRRD&quot;)+&quot;.nrrd&quot;)
+    _nrrd.SetSpacing(_nii.GetSpacing())
+    _nrrd.SetOrigin(_nii.GetOrigin())
+    _nrrd.SetDirection(_nii.GetDirection())
+    sitk.WriteImage(_nrrd,file[:-7].replace(&quot;NIFTI&quot;,&quot;NRRD&quot;)+&quot;.nrrd&quot;)
+    print(_nii.GetSpacing()==_nrrd.GetSpacing())
+    print(_nii.GetOrigin()==_nrrd.GetOrigin())
+    print(_nii.GetDirection()==_nrrd.GetDirection())
+</code></pre>
+<h2 id="思考">思考</h2>
+<p>在深度学习中会用到头文件信息嘛？用哪些信息，尚待验证。哪些信息需要对齐？比如我读取头数据和图像数据，将图像数据读进显存，中间随意操作，输出的图像要按原有的维度数据，加上原来的头数据存成输出结果，保证前后对齐。</p>
+<p>猜想：读入头数据和图像数据，按照不同图像头数据，将不同图像转换到相同的头数据空间，然后拿出转换后的图像数据，这里的图像数据才是对齐的，可以放进网络中使用。单独检验数组维度长度，很有可能没有对齐。后续保存输出结果时，一是按统一头数据存储，二是转换回原来的头数据，一的好处是方便，但是很有可能label就无法对齐了。</p>
+<p>当然我们也可以先统一预处理，img和label都转换好到统一的头数据，然后在预处理后的数据集上进行实验，这样应该是最合理的。这也引出了医学图像的预处理工作。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://Andyb1ance.github.io/tag/Qo7NSGeVy/" class="tag">
+                    医学图像
+                  </a>
+                
+              </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

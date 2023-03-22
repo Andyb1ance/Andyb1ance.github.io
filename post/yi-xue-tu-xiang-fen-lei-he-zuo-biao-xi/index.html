@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>医学图像分类和坐标系 | Andy</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Andyb1ance.github.io/favicon.ico?v=1679481918375">
+<link rel="stylesheet" href="https://Andyb1ance.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="三维图像的分类
+体素（Voxel）、点云（point clouds）和网格（mesh）都是三维图像处理中常用的数据形式，但它们各自有着不同的优缺点和适用范围。下面是它们的异同点及其特点：
+
+体素（Voxel）
+体素是三维空间中的一个立方体单..." />
+    <meta name="keywords" content="医学图像" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://Andyb1ance.github.io">
+        <img src="https://Andyb1ance.github.io/images/avatar.png?v=1679481918375" class="site-logo">
+        <h1 class="site-title">Andy</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Andy摸鱼的地方
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://Andyb1ance.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">医学图像分类和坐标系</h2>
+            <div class="post-date">2023-03-22</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="三维图像的分类">三维图像的分类</h2>
+<p>体素（Voxel）、点云（point clouds）和网格（mesh）都是三维图像处理中常用的数据形式，但它们各自有着不同的优缺点和适用范围。下面是它们的异同点及其特点：</p>
+<ol>
+<li>体素（Voxel）<br>
+体素是三维空间中的一个立方体单元，类似于二维空间中的像素，通常被用来表示物体或场景中的体积数据，是一种体积表示法。每个体素包含有关该区域的信息，例如其颜色和密度、透明度等。</li>
+</ol>
+<p>优点：</p>
+<ul>
+<li>可以直接表示体积数据，精确表示三维物体的形状、大小、位置和内部结构，适用于医学图像分析、科学研究等领域进行精确的物理模拟和计算。</li>
+<li>体素方便存储和处理，可以通过简单的操作进行旋转、缩放等变换。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>当需要描述复杂几何形状时，需要使用大量的体素，导致存储和计算资源消耗很大。</li>
+<li>体素粒度越小，对应的计算量也越大，而体素粒度越大，对于精细的三维模型表示就不够准确。</li>
+</ul>
+<p>适用范围：医学、生物、机械等领域中的数据分析和物理模拟等。</p>
+<ol start="2">
+<li>点云（Point Cloud）<br>
+点云是由一系列离散的点组成的三维数据集合，每个点都有自己的坐标位置和相关属性。</li>
+</ol>
+<p>优点：</p>
+<ul>
+<li>点云数据量相对体素较小，可以直接表示实际物体的表面几何形状和细节，且处理速度较快。</li>
+<li>点云具有灵活性，可以从各种传感器（如激光雷达、摄像机）收集，适用于多种应用场景。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>可能存在点云数据缺失问题，例如遮挡和视野受限等。</li>
+<li>点云数目越大，对应的计算量也越大，造成存储和计算资源消耗很大。</li>
+<li>点云数据的密度和采样方式会影响到表面几何的表示和重建质量，且对于物体内部结构的表示和物理模拟不够准确</li>
+</ul>
+<p>适用范围：三维重建、虚拟现实等需要直接表示表面几何形状的领域。</p>
+<ol start="3">
+<li>网格（Mesh）<br>
+网格是由三角形或四边形面片构成的三维模型，每个面片由三角形或四边形的顶点组成，类似于3D打印中的多边形网格，是一种表面表示法，网格可以包含颜色、纹理、法线等信息。</li>
+</ol>
+<p>优点：</p>
+<ul>
+<li>网格数据量相对于体素和点云较小，可以高效地表示复杂的几何形状和表面细节，并且可以轻松地进行渲染和显示。</li>
+<li>Mesh可以进行更加精细的表面重建，并且能够支持更好的纹理映射和光照计算等。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>网格的表面形状由面片组成，对于内部结构表示不够准确，同时对于非凸面、孔洞和特殊拓扑结构的物体处理会比较困难。不能精确地表示物体的形状和位置。</li>
+<li>网格通常需要复杂的计算才能生成，因此要求的计算资源更多。在表达大规模几何对象时，Mesh可能需要很多三角形或四边形面片，导致文件大小变得很大。</li>
+</ul>
+<p>适用范围：图形学、游戏开发、建筑设计等需要高效表示几何形状并且需要进行渲染的领域。</p>
+<p>综上所述，选择哪种三维数据表示方法取决于具体应用场景和需求。如果需要精确地表示物体的形状和位置，可以选择体素；如果需要表达物体的表面形状，可以选择点云或Mesh。</p>
+<h2 id="医学图像三维坐标系">医学图像三维坐标系</h2>
+<p>医学图像三维坐标系有世界坐标系（xyz）、解剖学坐标系（RAS)和图像坐标系(ijk），它们的差异和优缺点如下：</p>
+<figure data-type="image" tabindex="1"><img src="https://typora-1259418038.cos.ap-guangzhou.myqcloud.com/typora/9e0f0f44598846adb74d10b3b4421dfc.png" alt="" loading="lazy"></figure>
+<ol>
+<li>世界坐标系 World coordinate system：</li>
+</ol>
+<p>世界坐标系是一个三维空间中的全局坐标系，它通常被用来描述医学图像所处的物理环境，如手术室或扫描室。世界坐标系的优点是方便进行物理量计算和定位，但不适合用于解剖学或图像处理。该坐标系是指在物理空间中定义的坐标系，用于描述一个物体在真实世界中的位置和姿态。世界坐标系具有唯一性和一致性，能够提供精确的位置信息，但无法直接与医学图像对应。</p>
+<ol start="2">
+<li>解剖学坐标系 Anatomical coordinate system：</li>
+</ol>
+<p>解剖学坐标系是一个基于解剖结构的坐标系，用于描述人体或动物的解剖结构。该坐标系通常由解剖学结构的方向和位置表示，如左右、前后、上下。解剖学坐标系的优点是可以更直观地描述解剖结构的方向和位置，但它不适合用于图像处理和分析。该坐标系是建立在特定解剖结构上的坐标系，用于描述解剖结构在人体中的位置和姿态。解剖学坐标系能够提供与人体解剖结构相关的信息，但对于不同的病人或不同的解剖学结构，坐标系会有所不同，因此需要进行针对性的建模。</p>
+<p>解剖空间是医学成像技术中相对重要的坐标系，也称为患者坐标系。这个空间由三个平面组成，来描述人类的标准解剖位置：</p>
+<ul>
+<li>axial平面，轴位/横截面，平行于地面，将上与下分开</li>
+<li>coronal平面，冠状面，垂直于地面，将前与后分开</li>
+<li>sagittal平面，矢状面，将左与右分开</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://typora-1259418038.cos.ap-guangzhou.myqcloud.com/typora/217a6d3e4bad496e91928c0a97502fc5.png" alt="" loading="lazy"></figure>
+<ul>
+<li>LPS(Left, Posterior, Superior): 用于DICOM和MHD图像(meta image), ITK工具包, ITK-Snap软件(该软件中写的是RAI)使用</li>
+<li>RAS(Right, Anterior, Superior): Nifti图像和3D Slicer软件使用</li>
+</ul>
+<ol start="3">
+<li>图像坐标系 Image coordinate system：</li>
+</ol>
+<p>图像坐标系是医学图像中最常用的坐标系，用于描述像素在图像中的位置。该坐标系通常是一个二维网格坐标系，由行和列的像素值组成。图像坐标系的优点是适合进行图像处理和分析，但缺点是不直观，需要通过图像转换技术将其与其他坐标系进行对应。该坐标系是指在二维或三维图像中定义的坐标系，也叫像素/体素坐标系，用于描述图像中物体的位置和形态。图像坐标系具有良好的可视化表现，能够直接用于图像处理和分析，但由于不同成像设备或成像参数的不同，图像坐标系的位置和比例会发生变化。</p>
+<p>图像坐标系在医学图像处理中比较重要，医疗扫描仪创建从左上角开始的点和细胞的常规矩形阵列。i 轴向右增大，j 轴向右增大，k 轴向后增大。除了每个体素的强度值（i j k）之外，还存储解剖坐标的原点和间距。原点origin表示第一个体素 voxel（0，0，0） 在解剖坐标系中的位置，例如 （100mm， 50mm， -25mm）<br>
+间距spacing指定沿每个轴的体素之间的距离，例如（1.5mm，0.5mm，0.5mm）。使用原点和间距，可以计算出每个（图像坐标）体素在解剖坐标中的相应位置。</p>
+<figure data-type="image" tabindex="3"><img src="https://typora-1259418038.cos.ap-guangzhou.myqcloud.com/typora/1b252b3f719afffad46b1153a90a4cc9.png" alt="" loading="lazy"></figure>
+<p>在医学图像处理中，常用的坐标系变换方法有欧拉角变换、四元数变换和矩阵变换等。其中，矩阵变换是最常用的方法，可以通过矩阵乘法实现坐标系之间的转换。</p>
+<p>这几个坐标系之间的转换方法有以下几种：</p>
+<ol>
+<li>世界坐标系到图像坐标系的转换：</li>
+</ol>
+<p>这个转换通常涉及到从物理坐标到像素坐标的转换。可以通过将物理坐标转换为像素坐标，然后通过插值方法来计算像素值。转换方法通常需要考虑到物理坐标系与图像坐标系之间的缩放和旋转关系。</p>
+<ol start="2">
+<li>解剖学坐标系到图像坐标系的转换：</li>
+</ol>
+<p>这个转换通常需要根据解剖学结构的位置和方向确定一个对应的图像坐标系。可以使用放射学方法，如MRI或CT扫描，来确定解剖学坐标系与图像坐标系之间的对应关系。</p>
+<ol start="3">
+<li>图像坐标系到解剖学坐标系的转换：</li>
+</ol>
+<p>这个转换通常需要确定一个物理坐标系的参考点和方向，然后将像素坐标转换为物理坐标。这个转换通常需要使用图像元素的空间坐标和CT值来确定参考点和方向。</p>
+<ol start="4">
+<li>图像坐标系到世界坐标系的转换：</li>
+</ol>
+<p>这个转换通常需要使用放射学方法，如MRI或CT扫描，来确定解剖学坐标系与图像坐标系之间的对应关系。可以使用标志物（如金属球）在扫描中的位置作为参考点，然后使用图像配准技术来确定解剖学坐标系与图像坐标系之间的变换关系。</p>
+<h3 id="参考">参考</h3>
+<p>https://blog.csdn.net/qq_28838891/article/details/127455132</p>
+<p>https://stitch.blog.csdn.net/article/details/126405612</p>
+<p>https://www.jarvis73.com/2019/06/24/Medical-Imaging-Guide/</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://Andyb1ance.github.io/tag/Qo7NSGeVy/" class="tag">
+                    医学图像
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Andyb1ance.github.io/post/yi-xue-tu-xiang-ge-shi-yu-chu-li-gong-ju/">
+                  <h3 class="post-title">
+                    医学图像格式与处理工具  
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
