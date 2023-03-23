@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Andyb1ance.github.io</id>
     <title>Andy</title>
-    <updated>2023-03-22T10:47:52.607Z</updated>
+    <updated>2023-03-23T11:21:34.874Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Andyb1ance.github.io"/>
     <link rel="self" href="https://Andyb1ance.github.io/atom.xml"/>
@@ -10,6 +10,141 @@
     <logo>https://Andyb1ance.github.io/images/avatar.png</logo>
     <icon>https://Andyb1ance.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, Andy</rights>
+    <entry>
+        <title type="html"><![CDATA[医学图像常用软件和python包]]></title>
+        <id>https://Andyb1ance.github.io/post/yi-xue-tu-xiang-chang-yong-ruan-jian-he-python-bao/</id>
+        <link href="https://Andyb1ance.github.io/post/yi-xue-tu-xiang-chang-yong-ruan-jian-he-python-bao/">
+        </link>
+        <updated>2023-03-23T11:17:03.000Z</updated>
+        <content type="html"><![CDATA[<!-- more -->
+<p>主要学习SimpleITK和3d Slicer，以及elastix和ANTs toolbox。<br>
+备选：ITK-Snap</p>
+<h2 id="医学图像处理软件">医学图像处理软件</h2>
+<p>ITK-Snap和3D Slicer都是流行的、开源的医学图像处理软件。它们的目的都是为了方便医学研究人员对医学图像进行可视化、分析和处理。以下是它们之间的一些主要异同点：</p>
+<ol>
+<li>
+<p>ITK-Snap是基于交互式分割的软件，而3D Slicer是一个更全面的解决方案，包括可视化、数据预处理、分析和模拟等功能。</p>
+</li>
+<li>
+<p>3D Slicer采用Qt框架，支持多平台，具有良好的用户界面和脚本编写功能。</p>
+</li>
+<li>
+<p>ITK-Snap是专门为医学影像分割设计的，拥有许多先进的分割算法和工具，适合用于分割MRI和CT等医学影像。</p>
+</li>
+</ol>
+<p>除了ITK-Snap和3D Slicer之外，还有一些其他的医学图像处理软件，包括：</p>
+<ol>
+<li>
+<p>OsiriX：一款专门用于读取、处理和呈现DICOM格式医学图像的软件，主要适用于放射科医生。</p>
+</li>
+<li>
+<p>MedINRIA：一款基于INRIA开发的医学图像处理软件，适用于MRI和DTI数据分析，包括分割、配准、可视化等功能。</p>
+</li>
+<li>
+<p>MITK：一种跨平台的医学图像处理和分析工具，提供大量的功能模块，包括可视化、数据处理、分割、配准等。</p>
+</li>
+<li>
+<p>VTK：The Visualization Toolkit 是一个通用的计算机图形学和可视化库，可以用于医学图像处理，支持各种操作系统和编程语言。</p>
+</li>
+<li>
+<p>Amira：Amira是一个3D图像处理和分析软件，支持多种文件格式和数据来源，包括CT、MRI、PET和SPECT等。</p>
+</li>
+<li>
+<p>ImageJ：一款Java开发的图像处理软件，支持灰度和彩色图像的处理和分析，适用于医学图像分析和量化。</p>
+</li>
+</ol>
+<p>这只是一部分列表，还有很多其他的医学图像处理软件可供选择，具体选择应根据使用者的需求和实际情况而定。</p>
+<h2 id="3d-slicer和itk-snap">3D Slicer和ITK-Snap</h2>
+<h2 id="itk-vtk和simpleitk">ITK、VTK和SimpleITK</h2>
+<h2 id="医学图像配准">医学图像配准</h2>
+<p>基础：</p>
+<ol>
+<li>ITK：医学图像处理软件包</li>
+<li>VTK：三维计算机图形学、图像处理和可视化软件包</li>
+<li>SimpleITK：ITK的简化接口</li>
+</ol>
+<p>配准备选列表：</p>
+<ol>
+<li>elastix：github仓库https://github.com/SuperElastix/elastix/ 基于Insight segmentation and registration ToolKit（ITK），直接下载二进制压缩包，无需编译，windows/linux可运行</li>
+<li>SimpleElastix：github仓库https://github.com/SuperElastix/SimpleElastix 基于SimpleITK和elastix，支持多语言，需要下载源码进行编译，windows/linux可运行</li>
+<li>ITKElastx:github仓库https://github.com/InsightSoftwareConsortium/ITKElastix 提供elastix的ITK python接口，直接使用pip install即可</li>
+<li>ANTs：github仓库https://github.com/ANTsX/ANTs/ 需要现在源码进行编译</li>
+<li>ANTsPy：github仓库https://github.com/ANTsX/ANTsPy ANTs的python接口，直接使用pip install即可</li>
+</ol>
+<h3 id="参考">参考</h3>
+<p>医学图像配准是医学图像处理中的一个重要应用，有很多配准工具箱可以选择。以下是一些常用的工具箱：</p>
+<ol>
+<li>Elastix：Elastix是一个开源的医学图像配准工具，支持2D、3D和4D图像配准，并提供了许多先进的算法和模块。</li>
+</ol>
+<ul>
+<li>
+<p>3D Slicer拓展：Elastix提供了在3D Slicer中调用的扩展工具箱。</p>
+</li>
+<li>
+<p>Python接口：Elastix提供了Python接口，使得用户能够轻松地将其集成到Python代码中。</p>
+</li>
+</ul>
+<ol start="2">
+<li>ANTs：ANTs是另一个流行的医学图像配准软件，支持不同类型的图像配准，包括MRI、CT、PET等。它还包括一系列工具，可以进行分析、可视化和统计学分析。</li>
+</ol>
+<ul>
+<li>
+<p>3D Slicer拓展：ANTs提供了在3D Slicer中调用的扩展工具箱。</p>
+</li>
+<li>
+<p>Python接口：ANTs提供了Python接口，允许用户使用Python脚本来控制配准过程。</p>
+</li>
+</ul>
+<ol start="3">
+<li>FSL：FSL是另一个流行的医学图像处理软件包，包含大量的工具和算法，可以用于MRI、DTI和fMRI等图像配准和分析。</li>
+</ol>
+<ul>
+<li>
+<p>3D Slicer拓展：FSL提供了在3D Slicer中调用的扩展工具箱。</p>
+</li>
+<li>
+<p>Python接口：FSL提供了Python接口，使得用户能够轻松地将其集成到Python代码中。</p>
+</li>
+</ul>
+<ol start="4">
+<li>ITK：ITK是一个跨平台的C++库，提供了许多先进的算法和模块，可以用于医学图像配准、分割和分析。</li>
+</ol>
+<ul>
+<li>
+<p>3D Slicer拓展：ITK被广泛用于3D Slicer中，并作为标准配准器使用。</p>
+</li>
+<li>
+<p>Python接口：ITK提供了Python接口，使得用户能够轻松地将其集成到Python代码中。</p>
+</li>
+</ul>
+<p>除了上述这些工具箱以外，还有很多其他的工具箱可以选择，比如NiftyReg、BrainSuite等，每个工具都有自己的特点和优势。</p>
+<p>除了Elastix、ANTs、FSL和ITK之外，还有许多其他的医学图像配准工具箱可供选择：</p>
+<ol>
+<li>
+<p>NiftyReg：NiftyReg是一个开源的医学图像配准工具，支持MRI和CT等图像的配准，包括2D和3D图像的配准。它还提供了一些高级功能，如B-spline变换和负责任的配准。同时，NiftyReg也提供了C++和Python接口。</p>
+</li>
+<li>
+<p>BRAINSFit：BRAINSFit是由BRAINSTools项目提供的一种医学图像配准工具，支持MRI、CT、PET等各种类型的图像配准。它主要基于强大的ANTS算法，并提供了许多参数调节选项。</p>
+</li>
+<li>
+<p>MIRTK：MIRTK是一个跨平台的医学图像处理框架，其中包含了许多有用的工具和算法，用于MRI、CT、PET、SPECT等图像的配准、分割、重建和分析等。它采用了现代的C++11标准，并提供了Python接口。</p>
+</li>
+<li>
+<p>Plastimatch：Plastimatch是一个开源的医学图像配准工具，支持MRI、CT、PET等不同类型的图像配准，同时还提供了许多可视化和统计学分析功能。它支持C++和Python接口。</p>
+</li>
+<li>
+<p>SimpleElastix：SimpleElastix是一个介于Elastix和ITK之间的库，可以轻松地在Python中实现医学图像配准，它封装了Elastix和ITK的底层代码，使得用户可以快速使用这两个库进行配准。</p>
+</li>
+<li>
+<p>PyMedImage：PyMedImage是一个基于Python的医学图像处理库，包括了一些常见的图像处理算法，如滤波、边缘检测、配准等，并提供了简单易用的API接口。</p>
+</li>
+<li>
+<p>MedPy：MedPy是一个跨平台的医学图像处理库，它支持多种数据格式和模态，包括DICOM、NIfTI、MGH和Analyze等。它提供了许多常见的医学图像处理算法，如滤波、边缘检测、配准、分割和重建等，并提供了Python接口。</p>
+</li>
+</ol>
+<p>这只是列举了一部分常见的医学图像配准工具箱，选择适合自己需求的工具箱需要考虑很多因素，如应用领域、数据格式、算法可靠性等等。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[医学图像分类和坐标系]]></title>
         <id>https://Andyb1ance.github.io/post/yi-xue-tu-xiang-fen-lei-he-zuo-biao-xi/</id>
@@ -124,7 +259,8 @@
         <link href="https://Andyb1ance.github.io/post/yi-xue-tu-xiang-ge-shi-yu-chu-li-gong-ju/">
         </link>
         <updated>2023-03-22T10:32:16.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="医学图像格式">医学图像格式</h2>
+        <content type="html"><![CDATA[<!-- more -->
+<h2 id="医学图像格式">医学图像格式</h2>
 <p>医学图像常用的格式包括六种格式：DICOM（医疗中的数字图像和通信），NIFTI（神经影像学信息技术计划），PAR/REC（飞利浦 MRI 扫描格式），ANALYZE（Mayo 医疗成像）以及 NRRD（近乎原始光栅数据）和 MNIC 格式。其中DICOM格式是最常用的，NIFTI和NRRD也很常见。三种格式的异同和优缺点如下：</p>
 <ol>
 <li>DICOM格式</li>
